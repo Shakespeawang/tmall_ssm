@@ -8,7 +8,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String a[]){
-       int a1[] = {3,2,1};
+       int a1[] = {3,2,1,2};
        String bb = PrintMinNumber(a1);
        System.out.println(bb);
    }
