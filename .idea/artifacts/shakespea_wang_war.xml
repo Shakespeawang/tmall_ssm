@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="shakespea_wang:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="shakespea_wang.war">
+      <element id="artifact" artifact-name="shakespea_wang:war exploded" />
+    </root>
+  </artifact>
+</component>
