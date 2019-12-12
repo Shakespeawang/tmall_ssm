@@ -1,51 +1,91 @@
 package com.how2java.tmall.test;
 
 import com.sun.scenario.effect.InvertMask;
-
-public class Solution {
-    public static void main(String args[]){
-        int []b = {4,5 ,1 ,2,2,3,1,2,4,5,6,7,8};
-        int []copy = new int[b.length];
-         new Solution().InversePairs(b,copy,0,b.length-1);
-       for(int s:copy){
-           System.out.print(s+",");
-       }
-
+class Dad{
+    Dad()
+    {
+        System.out.println("父类构造方法");
+        System.out.println("price=" + price +",amount=" );
     }
 
 
-    public void InversePairs(int a[],int copy[],int low,int high){
-        if(low==high){
-            return ;
-        }
-        int mid = (low+high)>>1;
-        InversePairs(a,copy,low,mid);
-        InversePairs(a,copy,mid+1,high);
+    {
+        System.out.println("父类普通代码块");
+    }
 
-        int i = mid;
+    int price = 110;
+
+    static
+    {
+        System.out.println("父类静态代码块");
+    }
+
+}
+
+public class Solution extends Dad{
+    static final String str = "you";
+
+
+    public static void main(String[] args)
+    {
+        new Solution();
+        System.out.println("Hello ShuYi.");
+    }
+
+    Solution()
+    {
+        System.out.println(super.price);
+    }
+
+
+    {
+        System.out.println("书的普通代码块");
+    }
+
+
+
+    static
+    {
+        System.out.println("书的静态代码块");
+    }
+
+    static int amount = 112;
+
+
+
+    public void sort(int a[],int b[],int low,int high){
+
+        if(low == high) return ;
+
+        int media = (low+high)/2;
+        sort(a,b,low,media);
+        sort(a,b,media+1,high);
+
+        int i = media;
         int j = high;
-        int locopy = high;
+        int loc = high;
 
-        while(i>=low&&j>mid){
+        while(i>=low&&j>media){ //注意条件
+
             if(a[i]>a[j]){
-                copy[locopy--] = a[i--];
+                b[loc--] = a[i--];
             }
             else{
-                copy[locopy--] = a[j--];
+                b[loc--] = a[j--];
             }
         }
-        for(;i>=low;i--){
-            copy[locopy--] = a[i];
-        }
-        for(;j>mid;j--){
-            copy[locopy--] = a[j];
-        }
 
+        for(;low<=i;i--){
+            b[loc--] = a[i];
+        }
+        for(;j>media;j--){
+            b[loc--] = a[j];
+        }
         for(int s = low;s<=high;s++){
-            a[s] = copy[s];
+            a[s] = b[s];
         }
-        return ;
-
     }
+
+
 
 }
