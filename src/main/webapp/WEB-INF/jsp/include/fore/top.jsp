@@ -4,7 +4,7 @@
 <nav class="top ">
     <a href="${contextPath}">
         <span style="color:#C40000;margin:0px" class=" glyphicon glyphicon-home redColor"></span>
-        天猫首页
+        <a href="forehome">天猫首页</a>
     </a>
 
     <span>喵，欢迎来天猫</span>
